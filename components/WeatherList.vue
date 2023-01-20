@@ -67,9 +67,9 @@ export default {
           this.weather = response.data
           // localForage is a wrapper around IndexedDB
           // 데이터를 불러오는데 성공하면, 데이터를 저장한다.
-          this.$localForage.cityWeather.setItem(city, response.data)
+          this.$localForage.setItem(city, response.data)
         } else {
-          this.$localForage.cityWeather.getItem(city).then(data => {
+          this.$localForage.getItem(city).then(data => {
             this.isFail = false
             this.weather = data
           })
@@ -77,7 +77,7 @@ export default {
       }).catch(e => {
         // eslint-disable-next-line no-console
         console.error('error: ', e)
-        this.$localForage.cityWeather.getItem(city).then(data => {
+        this.$localForage.getItem(city).then(data => {
           this.isFail = false
           this.weather = data
         }).catch(e => {

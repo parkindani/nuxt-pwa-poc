@@ -58,13 +58,6 @@ export default {
     }
   },
 
-  localForage: {
-    instances: [
-      {name: 'myApp', storeName: 'genderName'},
-      {name: 'myApp', storeName: 'cityWeather'},
-    ]
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

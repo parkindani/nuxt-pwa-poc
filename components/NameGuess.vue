@@ -50,16 +50,16 @@ export default {
           this.nameDetails = response.data
           // localForage is a wrapper around IndexedDB
           // 데이터를 불러오는데 성공하면, 데이터를 저장한다.
-          this.$localForage.genderName.setItem(name, response.data)
+          this.$localForage.setItem(name, response.data)
         } else {
-          this.$localForage.genderName.getItem(name).then(data => {
+          this.$localForage.getItem(name).then(data => {
             this.nameDetails = data
           })
         }
       }).catch(e => {
         // eslint-disable-next-line no-console
         console.error('error: ', e)
-        this.$localForage.genderName.getItem(name).then(data => {
+        this.$localForage.getItem(name).then(data => {
           this.nameDetails = data
         })
       })
