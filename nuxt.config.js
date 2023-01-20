@@ -26,6 +26,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    // https://github.com/nuxt-community/localforage-module
+    '@nuxtjs/localforage',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,6 +49,20 @@ export default {
     manifest: {
       lang: 'en',
     },
+    workbox: {
+      enabled: true,
+      // Workaround to avoid hard-coded localhost:3000:
+      config: {
+        debug: true
+      }
+    }
+  },
+
+  localForage: {
+    instances: [
+      {name: 'myApp', storeName: 'genderName'},
+      {name: 'myApp', storeName: 'cityWeather'},
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
